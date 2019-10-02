@@ -1,9 +1,17 @@
 const Koa = require('koa');
+const logger = require('koa');
+const bodyParser = require('koa-body');
 
-const app = new Koa();
+const genealogy = new Koa();
 
-app.use((ctx, next) => {
+genealogy
+  .use(logger())
+  .use(bodyParser({
+    json: true
+  }));
+
+genealogy.use((ctx, next) => {
   ctx.body = 'Welcome to the genealogy page';
 });
 
-app.listen(3007);
+genealogy.listen(3007);
