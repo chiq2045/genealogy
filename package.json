@@ -1,0 +1,22 @@
+{
+  "name": "genealogy",
+  "version": "0.0.1",
+  "description": "Create interactive genealogies with family members!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chiq2045/genealogy.git"
+  },
+  "author": "Charles Oroko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chiq2045/genealogy/issues"
+  },
+  "homepage": "https://github.com/chiq2045/genealogy#readme",
+  "dependencies": {
+    "koa": "^2.8.2"
+  }
+}
