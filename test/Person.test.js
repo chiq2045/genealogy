@@ -7,21 +7,21 @@ describe('Person', () => {
     expect(person.name).toBeTruthy();
   });
 
-  test('should have a parents field', () => {
+  test('.parents should be empty Array', () => {
     const person = new Person('Suzu Fujibayashi');
 
-    expect(person.parents).toBe(null);
+    expect(person.parents).toStrictEqual([]);
   });
 
-  test('should have a children field', () => {
+  test('.children should be empty Array', () => {
     const person = new Person('Suzu Fujibayashi');
 
-    expect(person.children).toBe(null);
+    expect(person.children).toStrictEqual([]);
   });
 
-  test('should have a spouses field', () => {
+  test('.couples should be empty Array', () => {
     const person = new Person('Suzu Fujibayashi');
 
-    expect(person.children).toBe(null);
+    expect(person.couples).toStrictEqual([]);
   });
 });
