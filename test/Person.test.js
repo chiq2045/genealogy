@@ -24,4 +24,13 @@ describe('Person', () => {
 
     expect(person.couples).toStrictEqual([]);
   });
+
+  test('adds new person to parent Array', () => {
+    const person = new Person('Suzu Fujibayashi');
+    const parent = new Person('Dozou Fujibayashi');
+
+    expect(person.addParent(parent)).toBeTruthy();
+    expect(person.parents[0].name).toBe('Dozou Fujibayashi');
+    expect(parent.children[0].name).toBe('Suzu Fujibayashi');
+  });
 });
