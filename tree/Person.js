@@ -15,6 +15,16 @@ class Person {
     this.children = [];
     this.couples = [];
   }
+
+  /**
+   * Adds a parent
+   * @params {Person} parent - parent of person
+   * @returns {Boolean} success
+   */
+  addParent(parent) {
+    const success = this.parents.unshift(parent);
+    return success && parent.children.unshift(this);
+  }
 }
 
 module.exports = Person;
