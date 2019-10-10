@@ -1,10 +1,13 @@
 {
     "env": {
         "browser": true,
-        "es6": true
+        "es6": true,
+        "jest/globals": true
     },
     "extends": [
-        "airbnb", "koa"
+        "airbnb",
+        "koa",
+        "plugin:jest/recommended"
     ],
     "globals": {
         "Atomics": "readonly",
@@ -18,7 +21,8 @@
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react",
+        "jest"
     ],
     "rules": {
     }
