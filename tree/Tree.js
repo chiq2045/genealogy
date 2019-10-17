@@ -11,6 +11,15 @@ class Tree {
   constructor() {
     this.root = null;
   }
+
+  /**
+   * Add a person to the tree
+   * @param {string} name - the name of the person
+   * @retuns {Boolean} success
+   */
+  addPerson(name) {
+    return this.root = new Person(name);
+  }
 }
 
 module.exports = Tree;
