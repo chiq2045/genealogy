@@ -4,26 +4,37 @@
 class Person {
   /**
    * @class
-   * @param {string} name - name of person
+   * @param {Object} name - name of person
+   * @param {String} name.firstName - the first name
+   * @param {String} name.surname - the last name
    * @property {Person[]} parents - array of pointers
    * @property {Person[]} children - array of pointers
    * @property {Person[]} partners - array of pointers
    */
   constructor(name) {
-    this.name = name;
-    this.parents = [];
-    this.children = [];
-    this.partners = [];
+    this.firstName = name.firstName;
+    this.surname = name.surname;
+    this.parents = {};
+    this.children = {};
+    this.partners = {};
   }
 
   /**
    * Adds a parent
    * @params {Person} parent - parent of person
-   * @returns {Boolean} success
+   * @returns {Boolean} - success
    */
   addParent(parent) {
-    const success = this.parents.unshift(parent);
-    return success && parent.children.unshift(this);
+    const exists = this.parents[parent.firstName];
+    const parentPointer = parent;
+    if (!exists) {
+      this.parents[parent.firstName] = parent;
+      parentPointer.children[this.firstName] = this;
+
+      return true;
+    }
+
+    return false;
   }
 
   /**
@@ -32,8 +43,16 @@ class Person {
    * @returns {Boolean} success
    */
   addChild(child) {
-    const success = this.children.unshift(child);
-    return success && child.parents.unshift(this);
+    const exists = this.children[child.firstName];
+    const childPointer = child;
+    if (!exists) {
+      this.children[child.firstName] = child;
+      childPointer.parents[this.firstName] = this;
+
+      return true;
+    }
+
+    return false;
   }
 
   /**
@@ -42,8 +61,16 @@ class Person {
    * @returns {Boolean} success
    */
   addPartner(partner) {
-    const success = this.partners.unshift(partner);
-    return success && partner.partners.unshift(this);
+    const exists = this.partners[partner.firstName];
+    const partnerPointer = partner;
+    if (!exists) {
+      this.partners[partner.firstName] = partner;
+      partnerPointer.partners[this.firstName] = this;
+
+      return true;
+    }
+
+    return false;
   }
 }
 
