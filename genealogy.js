@@ -1,9 +1,12 @@
+require('dotenv').config();
+
 const Koa = require('koa');
+const logger = require('koa-logger');
+const serve = require('koa-static');
 
-const app = new Koa();
+const genealogy = new Koa();
 
-app.use((ctx, next) => {
-  ctx.body = 'Welcome to the genealogy page';
-});
+genealogy.use(logger());
+genealogy.use(serve('./dist'));
 
-app.listen(3007);
+genealogy.listen(process.env.SERVER_PORT);
