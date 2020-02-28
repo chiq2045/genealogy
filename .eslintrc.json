@@ -4,7 +4,7 @@
         "es6": true
     },
     "extends": [
-        "airbnb", "koa"
+        "airbnb", "koa", "plugin:react/recommended"
     ],
     "globals": {
         "Atomics": "readonly",
@@ -21,5 +21,22 @@
         "react"
     ],
     "rules": {
+        "indent": ["error", 2],
+        "prefer-destructuring": [
+            "error",
+            {
+                "VariableDeclarator": {
+                    "array": false,
+                    "object": true
+                },
+                "AssignmentExpression": {
+                    "array": false,
+                    "object": false
+                }
+            },
+            {
+                "enforceForRenamedProperties": false
+            }
+        ]
     }
 }
