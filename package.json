@@ -2,7 +2,7 @@
   "name": "genealogy",
   "version": "0.0.1",
   "description": "Create interactive genealogies with family members!",
-  "main": "index.js",
+  "main": "genealogy.js",
   "scripts": {
     "watch": "webpack --watch --progress --color",
     "build": "webpack"
